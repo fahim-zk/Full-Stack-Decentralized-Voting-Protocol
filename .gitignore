@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.env
+target/
+.snfoundry_cache/
+.DS_Store
+*.log
+dist/
+build/

@@ -1,0 +1,180 @@
+[
+  {
+    "type": "impl",
+    "name": "ZkVotingImpl",
+    "interface_name": "stark_voting::IZkVoting"
+  },
+  {
+    "type": "enum",
+    "name": "stark_voting::ElectionStages",
+    "variants": [
+      {
+        "name": "Voting",
+        "type": "()"
+      },
+      {
+        "name": "Tallying",
+        "type": "()"
+      },
+      {
+        "name": "Results",
+        "type": "()"
+      }
+    ]
+  },
+  {
+    "type": "interface",
+    "name": "stark_voting::IZkVoting",
+    "items": [
+      {
+        "type": "function",
+        "name": "vote",
+        "inputs": [
+          {
+            "name": "candidate_id",
+            "type": "core::integer::u32"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "type": "function",
+        "name": "advance_to_next_election_round",
+        "inputs": [],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "type": "function",
+        "name": "update_candidates",
+        "inputs": [
+          {
+            "name": "new_candidates",
+            "type": "core::array::Array::<core::felt252>"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "type": "function",
+        "name": "get_election_phase",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "stark_voting::ElectionStages"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "get_round_winner",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "(core::integer::u32, core::integer::u64, core::felt252)"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "get_candidate",
+        "inputs": [
+          {
+            "name": "candidate_id",
+            "type": "core::integer::u32"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::felt252"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "get_total_candidate_nums",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "core::integer::u32"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "get_current_election_round",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "core::integer::u32"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "get_owner",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "get_every_round_start_time",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "core::integer::u64"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "get_total_votes",
+        "inputs": [
+          {
+            "name": "cycle",
+            "type": "core::integer::u32"
+          },
+          {
+            "name": "candidate_id",
+            "type": "core::integer::u32"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::integer::u64"
+          }
+        ],
+        "state_mutability": "view"
+      }
+    ]
+  },
+  {
+    "type": "constructor",
+    "name": "constructor",
+    "inputs": [
+      {
+        "name": "candidates",
+        "type": "core::array::Array::<core::felt252>"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "stark_voting::ZkVoting::Event",
+    "kind": "enum",
+    "variants": []
+  }
+]
