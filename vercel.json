@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd frontend/str_voting/str_vote && npm run build",
+  "installCommand": "cd frontend/str_voting/str_vote && npm install --legacy-peer-deps",
+  "outputDirectory": "frontend/str_voting/str_vote/.next",
+  "framework": "nextjs"
+}
